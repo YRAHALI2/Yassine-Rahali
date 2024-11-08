@@ -38,9 +38,9 @@ def delta_calc(r,S,K,T,sigma,type="c"):
     d1 = (np.log(S/K) + (r + sigma**2/2)/T)/(sigma*np.sqrt(T))
     try :
         if type == "c":
-            delta_calc = np.cdf(d1,0,1)
+            delta_calc = norm.cdf(d1,0,1)
         elif type == "p":
-            delta_calc = -np.cdf(-d1,0,1)
+            delta_calc = -norm.cdf(-d1,0,1)
         return delta_calc, delta(type, S, K, T, r, sigma)
     except :
         print("Please confirm option type, either 'c' for Call or 'p' for Put")
